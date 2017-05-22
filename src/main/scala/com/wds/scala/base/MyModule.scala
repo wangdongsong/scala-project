@@ -41,12 +41,30 @@ object MyModule {
     go(index)
   }
 
+  /**
+    * 高阶函数
+    * @param name 描述
+    * @param n 数字
+    * @param func 函数
+    * @return
+    */
+  def formatResult(name: String, n: Int, func: Int => Int) = {
+    val msg = "The %s of %d is %d"
+    msg.format(name, n, func(n))
+  }
+
+
   def main(args: Array[String]): Unit = {
     println(formatABS(-3))
 
     println(factorial(3))
 
-    println(fib(7))
+    println(fib(8))
+
+    println(formatResult("Abs value", -3, abs))
+
+    println(formatResult("Factorial value", 8, fib))
+
   }
 
 }
