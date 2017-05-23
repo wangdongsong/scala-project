@@ -53,6 +53,39 @@ object MyModule {
     msg.format(name, n, func(n))
   }
 
+  /**
+    * 在str中查找key的索引值
+    * @param str
+    * @param key
+    * @return
+    */
+  def findFirst(str: Array[String], key: String) : Int ={
+    def loop(n: Int): Int = {
+      if(n >= str.length) -1
+      else if (str(n) == key) n
+      else loop(n + 1)
+    }
+    loop(0)
+  }
+
+  /**
+    * 高价函数
+    *
+    * 泛型化的函数，在数据arrs中查找p
+    * @param arrs
+    * @param p
+    * @tparam A
+    * @return
+    */
+  def findFirstGeneric[A](arrs: Array[A], p: A => Boolean) : Int = {
+    def loop(n: Int): Int = {
+      if (n >= arrs.length) -1
+      else if (p(arrs(n))) n
+      else loop(n + 1)
+    }
+    loop(0)
+  }
+
 
   def main(args: Array[String]): Unit = {
     println(formatABS(-3))
@@ -65,6 +98,10 @@ object MyModule {
 
     println(formatResult("Factorial value", 8, fib))
 
+    println(findFirst(Array("A", "B", "C"), "C"))
+
+    //对高阶函数传入匿名高阶函数
+    println(findFirstGeneric(Array("A", "B", "C", "D"), (str: String) => str == "B"))
   }
 
 }
