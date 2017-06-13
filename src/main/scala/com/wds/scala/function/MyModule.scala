@@ -1,4 +1,4 @@
-package com.wds.scala.base
+package com.wds.scala.function
 
 /**
   * 绝对值

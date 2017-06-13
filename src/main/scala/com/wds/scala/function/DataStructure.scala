@@ -1,4 +1,4 @@
-package com.wds.scala.base
+package com.wds.scala.function
 
 sealed trait List[+A]
 case object Nil extends List[Nothing]
