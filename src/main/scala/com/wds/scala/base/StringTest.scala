@@ -6,7 +6,17 @@ package com.wds.scala.base;
 object StringTest {
 
   def main(args: Array[String]): Unit = {
-    baseExercise()
+    //baseExercise()
+
+    //findString
+
+    //stringReplace
+
+    //extraceString
+
+    //accessOneOfString
+
+    addCustomerMethod
   }
 
   def baseExercise(): Unit = {
@@ -100,9 +110,74 @@ object StringTest {
     println(upper)
     upper = "hello, world".filter(_ != 'l').map(_.toUpper)
     println(upper)
+    //理解map过程
     val toLower = (c: Char) => (c.toByte + 32).toChar
     println("HELLO".map(toLower))
     println("HELLO".map(toLowerMethod))
+
+
+
+
+  }
+
+  /**
+    * 字符串中的查找模式，判断一个字符串是否符合一个正则表达式
+    */
+  private def findString = {
+    //1.6字符串中的查找模式，判断一个字符串是否符合一个正则表达式
+    val numPattern = "[0-9]+".r
+    val address = "123 Main Street Suite 101"
+    val match1 = numPattern.findFirstIn(address)
+    println(match1.get)
+
+    numPattern.findAllIn(address).foreach(println)
+  }
+
+  /**
+    * 1.7 字符串中的替换模式
+    */
+  private def stringReplace = {
+    val address = "123 Main Street 234"
+    println(address.replaceAll("[0-9]", "x"))
+
+    var regex = "[0-9]+".r
+    println(regex.replaceAllIn(address, "x"))
+    println(regex.replaceFirstIn(address, "x"))
+  }
+
+  /**
+    * 1.8 抽取String中模式匹配的部分
+    * 抽取一个或多个在字符串正则匹配到的部分
+    */
+  private def extraceString = {
+    val pattern = "([0-9]+) ([A-Za-z]+)".r
+    val pattern(count, fruit) = "100 Bananas"
+    println(count)
+    println(fruit)
+
+  }
+
+  /**
+    * 1.9 访问字符串中的一个字符
+    */
+  private def accessOneOfString = {
+    println("hello".charAt(0))
+    println("hello"(0))
+    println("hello"(1))
+  }
+
+  /**
+    * 1.10 在String类中添加自定义的方法
+    */
+  private def addCustomerMethod = {
+    //Scala 2.10中，定义一个隐匿转换的类，在此类中定义一些方法
+    //隐式转换必须定义在允许定义的方法的范围内，意味着隐式转换类必须定义在一个类或对象或包的内部
+    implicit class StringImprovements(s: String){
+      def increment = s.map(c => (c + 1).toChar)
+    }
+
+    val result = "hello".increment
+    println(result)
   }
 
   def toLowerMethod(c: Char) : Char ={
