@@ -1,5 +1,7 @@
 package com.wds.scala.base
 
+import scala.util.Random
+
 /**
   * 数值对象
   * Created by wangdongsong1229@163.com on 2017/6/17.
@@ -11,7 +13,62 @@ object NumberTest {
     //typeConvert
     //overrideNum
     //numOperation
-    floatCompare
+    //floatCompare
+    //computeBigNum
+    //generateRandom
+    //numRange
+    formatNum
+  }
+
+  def formatNum = {
+    val pi = scala.math.Pi
+    println(pi)
+    println(f"$pi%1.5f")
+    println(f"$pi%3.2f".format(pi))
+  }
+
+  /**
+    * 2.8 数值区间、列表或数组
+    */
+  def numRange = {
+    var r = 1 to 10
+    r.foreach(println)
+
+    var step = 1 to 10 by 2
+    step.foreach(println)
+
+    for (i <- 1 to 5 ) println(i)
+
+    for (i <- 1 until 5) println(i)
+
+    var array = (1 to 10).toArray
+    println(array.getClass.getName)
+    var list = (1 to 10).toList
+    println(list.getClass.getName)
+  }
+
+  /**
+    * 2.7 生成随机数
+    */
+  def generateRandom = {
+    var r = Random
+    println(r.nextInt())
+    println(r.nextFloat())
+    println(r.nextDouble())
+
+    for (i <- 0 to r.nextInt(10)) yield println(i * 2)
+
+    for (i <- 0 to 5) yield println(r.nextInt(100))
+  }
+
+  /**
+    * 2.6 处理大数
+    */
+  def computeBigNum = {
+    var b = BigInt("123456789012345");
+    b += b;
+    b *= b
+    print(b)
   }
 
   /**
