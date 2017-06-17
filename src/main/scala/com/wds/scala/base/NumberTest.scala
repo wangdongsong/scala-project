@@ -7,7 +7,38 @@ package com.wds.scala.base
 object NumberTest {
 
   def main(args: Array[String]): Unit = {
-    strToNum()
+    //strToNum()
+    typeConvert
+    overrideNum
+  }
+
+  /**
+    * 2.3 对数值类型重载
+    */
+  def overrideNum = {
+    val a = 1
+    val b = 1d
+    val c = 1f
+    val d = 1000L
+
+    val e = 1: Byte
+    val f = 1: Int
+
+    println(a , b, c, d, e, f)
+  }
+
+  /**
+    * 2.2 数值类型转换
+    */
+  def typeConvert ={
+    println(19.45.toInt)
+    println(19.toFloat)
+    println(19.toLong)
+
+    //如果避免类型转换错误，可以先判断
+    val a = 1000L
+    println(a.isValidByte)
+    println(a.isValidShort)
   }
 
   /**
