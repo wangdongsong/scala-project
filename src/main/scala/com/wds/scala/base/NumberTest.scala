@@ -8,8 +8,41 @@ object NumberTest {
 
   def main(args: Array[String]): Unit = {
     //strToNum()
-    typeConvert
-    overrideNum
+    //typeConvert
+    //overrideNum
+    //numOperation
+    floatCompare
+  }
+
+  /**
+    * 2.5 浮点数据比较
+    */
+  def floatCompare = {
+    val a = 0.3
+    val b = 0.1 + 0.2
+    println(b)
+    println(a == b)
+    println(~=(a, b, 0.0001))
+  }
+
+  /**
+    *
+    * @param x
+    * @param y
+    * @param precision
+    */
+  def ~= (x: Double, y: Double, precision: Double) = {
+    if ((x - y).abs < precision) true else false
+  }
+
+  /**
+    * 2.4 替代++和--
+    */
+  def numOperation = {
+    var a = 1
+    a += 1
+    a -= 1
+    println(a)
   }
 
   /**
