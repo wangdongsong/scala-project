@@ -33,7 +33,41 @@ object NumberTest {
       def toInt(radix: Int) = Integer.parseInt(s, radix)
     }
     println("15".toInt(16))
+
+    /**
+      * 异常处理
+      */
+    println(toInt("10").getOrElse(0))
+    println(toInt("abc").getOrElse(0))
+    //方案3 模式匹配
+    var result = toInt("10") match {
+      case Some(x) => x
+      case None => 0
+    }
+    println(result)
   }
+
+  /**
+    * 方案1，异常处理
+    * @param s
+    * @throws java.lang.NumberFormatException
+    * @return
+    */
+  @throws(classOf[NumberFormatException])
+  def toIntException(s: String) = s.toInt
+
+  /**
+    * 方案2：异常处理
+    * Java中如果将String转数值会出现检查异常NumberFormatException。Scala中没有，
+    */
+  def toInt(s: String): Option[Int] = {
+    try{
+      Some(s.toInt)
+    }catch{
+      case e: NumberFormatException => None
+    }
+  }
+
 }
 
 
