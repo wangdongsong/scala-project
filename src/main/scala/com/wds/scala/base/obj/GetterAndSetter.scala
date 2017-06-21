@@ -17,6 +17,10 @@ class GetterAndSetter(var _name: String) {
   def name_= (aName: String){ _name = aName}
 }
 
+
+/**
+  * 4.6 阻止生成getter和setter方法
+  */
 class Stock {
   var delayPrice: Double = _
   //同一个类的实例可以访问
