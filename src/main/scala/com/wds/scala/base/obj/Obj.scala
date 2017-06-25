@@ -1,5 +1,7 @@
 package com.wds.scala.base.obj
 
+import scala.xml
+
 /**
   * 6 对象
   *
@@ -14,7 +16,8 @@ object Obj{
   def main(args: Array[String]): Unit = {
 
     //objectCast
-    javaClass
+    //javaClass
+    objClass(1, 2, 3)
   }
 
   /**
@@ -35,6 +38,20 @@ object Obj{
     val stringClass = classOf[String]
     println(stringClass)
   }
+
+  /**
+    * 6.3 确定对象所属的类
+    */
+  def objClass(numbers: Int*) = {
+    println("class " + numbers.getClass)
+    //println(printClass(numbers))
+
+    val hello = <p>Hello, world</p>
+    println(hello.getClass)
+    hello.child.foreach(e =>printClass(e))
+  }
+
+  def printClass(c: Any) = println(c.getClass)
 
 }
 
