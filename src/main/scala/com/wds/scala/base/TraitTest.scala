@@ -18,6 +18,7 @@ trait Computer{
   var size = 14
   val maxNumToppings = 10
   var outputSize: Int //abstract
+  val maxNumToppins2: Int
 
   def play
   def input
@@ -28,6 +29,7 @@ class MyComputer extends Computer{
   //8.2 使用特质中的抽象字段和实际字段
   size = 13
   var outputSize = 5
+  override val maxNumToppins2: Int = 15
 
   override def play: Unit = println("play")
 
