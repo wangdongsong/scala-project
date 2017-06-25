@@ -10,6 +10,13 @@ package com.wds.scala.base.function
   */
 object FuncTest {
   def main(args: Array[String]): Unit = {
+    //9.1 函数字面量
+    //funcAsLetterVariable
+    //9.2 函数作为变量
+    funcAsVariable
+  }
+
+  def funcAsLetterVariable = {
     val x = List.range(1, 10)
     x.foreach(print)
 
@@ -32,5 +39,25 @@ object FuncTest {
     evens2.foreach(println(_))
     //如果一个函数的字面量只有一条语句，且该语句只接受一个参数，那么参数不需要特别指定，也不需要显式声明
     evens2.foreach(println)
+  }
+
+  def funcAsVariable = {
+    val double = (i: Int) => (i * 2)
+    println(double(2))
+    var list = List.range(1, 5)
+    list.map(double).foreach(print)
+
+    println()
+    val f: Int => Boolean = _ % 2 == 0
+    list.filter(f).foreach(print)
+
+    println()
+    val c = scala.math.abs _
+    val list2 = List.range(-5, -1)
+    println()
+    list2.map(c).foreach(print)
+    println()
+    val p = scala.math.pow(_, _)
+    println(p(3, 2))
   }
 }
