@@ -40,6 +40,34 @@ object AdvanceFunc {
       case x: Int  if x != 0 => 42 / x
     }
     println(if(divide3.isDefinedAt(2)) divide3(2))
+
+    val convert1to5 = new PartialFunction[Int, String] {
+      val nums = Array("one", "two", "three", "four", "five")
+
+      def apply(x: Int): String = nums(x - 1)
+
+      def isDefinedAt(x: Int): Boolean = x > 0 && x < 6
+    }
+    val convert6to10 = new PartialFunction[Int, String] {
+      val nums = Array("six", "seven", "eight", "nine", "ten")
+
+      def apply(x: Int): String = nums(x - 6)
+
+      def isDefinedAt(x: Int): Boolean = x > 5 && x < 11
+    }
+
+    val handle1to10 = convert1to5 orElse convert6to10
+    println(handle1to10(3))
+    println(handle1to10(7))
+
+
+    println("-----------------")
+    //偏函数定义
+    val isEven: PartialFunction[Int, String] = {
+      case x if x % 2 == 0 => x + " is even"
+    }
+    //collect方法使用偏函数的例子
+    (1 to 5).collect(isEven).foreach(print)
   }
 
   /**
