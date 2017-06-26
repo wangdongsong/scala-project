@@ -13,7 +13,40 @@ object FuncTest {
     //9.1 函数字面量
     //funcAsLetterVariable
     //9.2 函数作为变量
-    funcAsVariable
+    //funcAsVariable
+    //9.3 定义接受简单函数作为参数的方法
+    acceptFunc
+  }
+
+  def acceptFunc = {
+    val sayHello = () => {println("sayHello")}
+    executeFunction(sayHello)
+    val sayOne = (i: Int) => {println(i * 2)}
+    executeFunction(sayOne)
+    executeFunction(sayHello, 3)
+
+    //复杂函数
+    val sum = (i: Int, k: Int) => {i + k}
+    val multiply = (x: Int, y: Int) => x * y
+    executeAndPrint(sum , 3, 2)
+    executeAndPrint(multiply, 3, 2)
+  }
+
+  def executeAndPrint(f:(Int, Int) => Int, i: Int, k: Int): Unit ={
+    val result = f(i, k)
+    println("result: ", result)
+  }
+
+  def executeFunction(callback:() => Unit): Unit ={
+    callback()
+  }
+
+  def executeFunction(f: Int => Unit): Unit ={
+    f(10)
+  }
+
+  def executeFunction(callback: () => Unit, index: Int) : Unit ={
+    for(i <- 1 until index) callback
   }
 
   def funcAsLetterVariable = {
