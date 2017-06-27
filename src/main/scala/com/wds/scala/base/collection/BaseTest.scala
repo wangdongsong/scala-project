@@ -8,10 +8,24 @@ import scala.collection.mutable.ArrayBuffer
 object BaseTest {
 
   def main(args: Array[String]): Unit = {
-    firstArrayBuffer
+    //firstArrayBuffer
+    foreachLoop
   }
 
   /**
+    * 10.9 foreach循环
+    */
+  def foreachLoop: Unit = {
+    val fruits = Vector(1, 2, 3, 4, 5)
+    fruits.foreach(i => println(i))
+    fruits.foreach(println(_))
+    fruits.foreach(println)
+    fruits.foreach((i: Int) => print(i))
+
+  }
+
+  /**
+    * 10.8 ArrayBuffer
     * 可变集合首选ArrayBuffer
     *
     * ArrayBuffer是一个索引序列集合，如果想用一个可变的线性序列集合，就使用ListBuffer
