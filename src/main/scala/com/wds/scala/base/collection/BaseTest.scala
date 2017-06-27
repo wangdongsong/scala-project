@@ -1,13 +1,44 @@
 package com.wds.scala.base.collection
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
   * Created by wangdongsong1229@163.com on 2017/6/27.
   */
 object BaseTest {
 
   def main(args: Array[String]): Unit = {
-    
+    firstArrayBuffer
   }
+
+  /**
+    * 可变集合首选ArrayBuffer
+    *
+    * ArrayBuffer是一个索引序列集合，如果想用一个可变的线性序列集合，就使用ListBuffer
+    */
+  def firstArrayBuffer: Unit ={
+    var furit = ArrayBuffer[String]()
+    var nums = ArrayBuffer(1, 2, 3)
+    nums += 4
+    nums ++= List(5, 6, 7, 8, 9, 10)
+    println(nums)
+    nums -= (7, 8)
+    println(nums)
+    nums --= List(9, 10)
+    println(nums)
+  }
+
+  /**
+    * Vector为不可变序列第1位
+    *
+    */
+  def firstVector: Unit = {
+    var sister = Vector("wds01", "wds02", "wds03")
+    //会产生一相新的Vector变量
+    sister = sister :+ "wds04"
+  }
+
+
 
   /**
     * 10.5 创建集合时声明一个类型
@@ -16,7 +47,7 @@ object BaseTest {
     val x = List(1, 2, 3, 4)
     val x1 = List(1, 2, 3, 4L)
     val x2 = List[Number](1, 2.0, 33D, 400L)
-    val x3 = List[AnyVal](1, 2.0, "str", 400L, 33D)
+    val x3 = List[AnyVal](1, 2.0, 400L, 33D)
   }
 
 }
