@@ -9,7 +9,31 @@ object BaseTest {
 
   def main(args: Array[String]): Unit = {
     //firstArrayBuffer
-    foreachLoop
+    //foreachLoop
+    forLoop
+  }
+
+  /**
+    * 10.10 for循环遍历集合
+    * 通过for循环遍历集合中元素，通过for/yield组合使用来从一个已有的集合创建出一个新的集合
+    */
+  def forLoop: Unit = {
+    val fruits = Traversable("apple", "banana", "orange")
+    for(f <- fruits) print(f)
+    println
+    for(f <- fruits) print(f.toUpperCase())
+    //多行
+    for(f <- fruits){
+      val s = f.toUpperCase
+      println(s)
+    }
+    val fruits2 = Array("apple", "banana", "orange")
+    //计数器
+    for(i <- 0 until fruits.size) println(s"element $i is ${fruits2(i)}")
+    for((elem, count) <- fruits2.zipWithIndex){
+      println(s"element $count is $elem")
+    }
+
   }
 
   /**
