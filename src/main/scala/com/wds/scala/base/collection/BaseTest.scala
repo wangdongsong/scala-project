@@ -12,7 +12,30 @@ object BaseTest {
     //foreachLoop
     //forLoop
     //zipWithIndexCounter
-    useIterator
+    //useIterator
+    forYieldConvertCollections
+  }
+
+
+  /**
+    * 10.13 用for/yield实现集合间的转换
+    */
+  def forYieldConvertCollections: Unit = {
+    val a = Array(1, 2, 3, 4, 5)
+    //创建a的副本
+    val copyA = for(e <- a) yield e
+    val doubleA = for( e <- a) yield e * 2
+
+    //转大写
+    val fruits = Vector("a", "abcdefg" , "c", "d")
+    val upperFruit = for(e <- fruits) yield  e.toUpperCase
+
+    //产生Tuple2
+    val tuple2 = for(i <- 0 until fruits.size) yield (i, fruits(i))
+    println(tuple2(0))
+
+    val x = for(e <- fruits if e.length < 6) yield e.toUpperCase()
+    println(x(1))
   }
 
   /**
