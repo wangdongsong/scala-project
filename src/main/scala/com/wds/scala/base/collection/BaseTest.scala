@@ -15,7 +15,41 @@ object BaseTest {
     //useIterator
     //forYieldConvertCollections
     //mapConvertCollections
-    useFlatten
+    //useFlatten
+    useMapFlattenAndFlatMap
+  }
+
+  /**
+    * 10.16 map、flatten、flatMap组合
+    *
+    * flatMap的使用场景
+    *   1、使用map方法（或yield/for表达式）根据一个已有的集合创建一个新集合
+    *   2、结果是一个列表的列表
+    *   3、可以在map(或yield/for表达式）后立刻使用flatten
+    *  上述情况下可使用flatMap，其等价于map->flatten的组合操作
+    */
+  def useMapFlattenAndFlatMap: Unit ={
+
+    //计算列表中的数字之和
+    val bag = List("1", "4", "3", "three", "one", "one hundred")
+    //先定义一个字符串到数字的转换函数
+    println(bag.flatMap(strToInt).sum)
+    //如何理解上述代码
+    bag.map(strToInt) //生成List(Some(1), Some(4), Some(3), None, None, None)
+    bag.map(strToInt).flatten //生成List(1, 4, 3)
+    bag.map(strToInt).flatten.sum //等价于bag.flatMap(strToInt).sum
+
+    bag.flatMap(strToInt).filter(_ > 1)
+    bag.flatMap(strToInt).takeWhile(_ < 4)
+    bag.flatMap(strToInt).partition(_ > 3)
+  }
+
+  def strToInt(in: String): Option[Int] = {
+    try{
+      Some(Integer.parseInt(in))
+    } catch {
+      case e: Exception => None
+    }
   }
 
   /**
