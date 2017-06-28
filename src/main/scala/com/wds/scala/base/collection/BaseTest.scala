@@ -11,7 +11,19 @@ object BaseTest {
     //firstArrayBuffer
     //foreachLoop
     //forLoop
-    zipWithIndexCounter
+    //zipWithIndexCounter
+    useIterator
+  }
+
+  /**
+    * 10.12 迭代器使用
+    */
+  def useIterator: Unit = {
+    val it = Iterator(1, 2, 3)
+    it.foreach(print)
+    //迭代器已经结束，下行语句不会有任何输出
+    it.foreach(println)
+
   }
 
   /**
