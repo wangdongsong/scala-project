@@ -16,7 +16,36 @@ object BaseTest {
     //forYieldConvertCollections
     //mapConvertCollections
     //useFlatten
-    useMapFlattenAndFlatMap
+    //useMapFlattenAndFlatMap
+    filterMap
+  }
+
+  /**
+    * 10.17 用filter过滤一个集合
+    * filter保留条件为true的元素并生成新的集合，原集合会保持不变
+    */
+  def filterMap: Unit = {
+    val x = List.range(1, 10)
+    //单一条件，返回true或false
+    val even = x.filter(_ % 2 == 0)
+
+    val fruits = Set("orange", "peach", "apple", "banana")
+    val f1 = fruits.filter(_.startsWith("a"))
+    val f2 = fruits.filter(_.length > 5)
+
+    //复杂条件
+    val list2 = "apple" :: "banana" :: 1 :: 2 :: Nil
+    //也可以封装成简单算法
+    val strings = list2.filter{
+      case s: String => true
+      case _ => false
+    }
+    val strings2  = list2.filter(onlyString)
+  }
+
+  def onlyString (s: Any) = s match{
+    case s: String => true
+    case _ => false
   }
 
   /**
