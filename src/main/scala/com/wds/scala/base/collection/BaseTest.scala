@@ -13,8 +13,29 @@ object BaseTest {
     //forLoop
     //zipWithIndexCounter
     //useIterator
-    forYieldConvertCollections
+    //forYieldConvertCollections
+    mapConvertCollections
   }
+
+  /**
+    * 10.14 用map实现集合的变换
+    */
+  def mapConvertCollections: Unit = {
+    val helper = Vector("adam", "kim", "melissa")
+    val caps = helper.map(e => e.toUpperCase)
+    val caps1 = helper.map(_.capitalize)
+    val names = Array("Fred", "Joe", "Jonathan")
+    val lengths = names.map(_.length)
+
+    //集合转XML
+    val elems = names.map(name => <li>{name}</li>)
+    elems.foreach(print)
+
+    println("HAL".map(plusOne))
+
+  }
+
+  def plusOne(c: Char) = (c.toByte + 1).toChar
 
 
   /**
