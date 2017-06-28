@@ -10,7 +10,31 @@ object BaseTest {
   def main(args: Array[String]): Unit = {
     //firstArrayBuffer
     //foreachLoop
-    forLoop
+    //forLoop
+    zipWithIndexCounter
+  }
+
+  /**
+    * 10.11 使用zipWithIndex或zip创建循环计数器
+    *
+    * 循环一个有序集合，并且能够访问循环计数器
+    */
+  def zipWithIndexCounter: Unit = {
+    val days = Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Staturday")
+
+    //从0开始计数
+    days.zipWithIndex.foreach{
+      case(day, count) => println(s"$count is $day")
+    }
+
+    for((day, count) <- days.zipWithIndex) {
+      println(s"$count is $day")
+    }
+
+    //zip方式可以控制超始值
+    for((day, count) <- days.zip(Stream from 1)) {
+      println(s"$count is $day")
+    }
   }
 
   /**
@@ -47,9 +71,6 @@ object BaseTest {
     //Map中使用for
     val names = Map("fname" -> "wds", "age" -> "21")
     for((k, v) <- names) println(s"key = $k, value = $v")
-
-
-
   }
 
   /**
