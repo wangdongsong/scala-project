@@ -34,6 +34,18 @@ object BaseTest {
       println(s"element $count is $elem")
     }
 
+    //for/yield表达式
+    val newFruits2 = for(e <- fruits2) yield e.toUpperCase()
+    println(newFruits2(0))
+
+    val newFrutis3 = for(e <- fruits2) yield {
+      val upper = e.toUpperCase
+      upper
+    }
+    println(newFrutis3(1))
+
+
+
   }
 
   /**
