@@ -17,7 +17,19 @@ object BaseTest {
     //mapConvertCollections
     //useFlatten
     //useMapFlattenAndFlatMap
-    filterMap
+    //filterMap
+    extractCollection
+  }
+
+  /**
+    * 10.18 从集合中提取元素
+    */
+  def extractCollection: Unit = {
+    val x = (1 to 10).toArray
+    //drop头3个元素
+    val y = x.drop(3)
+    //dropWhile去掉谓词为真的元素
+    val z = x.dropWhile( _ < 6)
   }
 
   /**
