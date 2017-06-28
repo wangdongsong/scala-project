@@ -44,6 +44,10 @@ object BaseTest {
     }
     println(newFrutis3(1))
 
+    //Map中使用for
+    val names = Map("fname" -> "wds", "age" -> "21")
+    for((k, v) <- names) println(s"key = $k, value = $v")
+
 
 
   }
