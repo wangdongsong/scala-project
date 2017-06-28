@@ -14,7 +14,27 @@ object BaseTest {
     //zipWithIndexCounter
     //useIterator
     //forYieldConvertCollections
-    mapConvertCollections
+    //mapConvertCollections
+    useFlatten
+  }
+
+  /**
+    * 10.15 展平列表的列表和扁平化问题
+    */
+  def useFlatten: Unit = {
+    val lol = List(List(1, 2), List(3, 4))
+    val result = lol.flatten
+    result.foreach(print)
+
+    val a = Array(Array(1, 2), Array(3, 4))
+    a.flatten.foreach(print)
+
+    val couples = List(List("kim", "al"), List("julia", "terry"))
+    couples.flatten.map(_.capitalize).sorted.foreach(print)
+
+    //转成字符输出
+    val hello = List("Hello", "World")
+    hello.flatten.distinct.foreach(print)
   }
 
   /**
