@@ -19,8 +19,31 @@ object BaseTest {
     //useMapFlattenAndFlatMap
     //filterMap
     //extractCollection
-    seqPartition
+    //seqPartition
+    loopCollectionByReduceAndFold
   }
+
+  /**
+    * 10.20 用reduce和fold方法遍历集合
+    */
+  def loopCollectionByReduceAndFold: Unit = {
+    val a = Array(12, 6, 15, 2, 20, 9)
+    println(a.reduceLeft(_ + _))
+
+    //reduceLeft的示例
+    val findMax = (x: Int, y: Int) => {
+      val winner = x max y
+      println(s"compared $x to $y, $winner was larger")
+      winner
+    }
+    a.reduceLeft(findMax)
+
+    val peeps = Vector("al", "hannah", "emily", "christina", "aleka")
+    peeps.reduceLeft((x, y) => if(x.length > y.length) x else y)
+
+    println(a.foldLeft(10)(_ + _))
+  }
+
 
   /**
     * 10.19 序列的分隔
