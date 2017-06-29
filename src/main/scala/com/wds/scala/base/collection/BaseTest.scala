@@ -20,7 +20,19 @@ object BaseTest {
     //filterMap
     //extractCollection
     //seqPartition
-    loopCollectionByReduceAndFold
+    //loopCollectionByReduceAndFold
+    extraceDistinctEleme
+  }
+
+  /**
+    * 10.21 从序列中提取不重复的元素
+    */
+  def extraceDistinctEleme: Unit = {
+    val x = Vector(1, 1, 2, 3, 3, 4)
+    val y = x.distinct
+    println(y)
+    val z = x.toSet
+    println(z)
   }
 
   /**
