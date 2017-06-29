@@ -50,6 +50,12 @@ object BaseTest {
     val numsSliding2 = nums.sliding(2, 2).toList
     //size=2 step=3
     nums.sliding(2, 3).toList
+
+    //unzip
+    val listOfTuple2s = List((1, 2), ("a", "b"))
+    val listOfTuple3s = listOfTuple2s.unzip
+    println(listOfTuple3s)
+
   }
 
   /**
