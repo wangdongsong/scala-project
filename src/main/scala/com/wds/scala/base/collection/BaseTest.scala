@@ -18,7 +18,38 @@ object BaseTest {
     //useFlatten
     //useMapFlattenAndFlatMap
     //filterMap
-    extractCollection
+    //extractCollection
+    seqPartition
+  }
+
+  /**
+    * 10.19 序列的分隔
+    *
+    * groupBy partition span splitAt sliding unzip
+    */
+  def seqPartition: Unit = {
+    val x = List(15, 10, 5, 8, 20, 12)
+    val y = x.groupBy(_ > 10)
+    println(y)
+    val ytrues = y(true)
+    val yfalse = y(false)
+    print(ytrues)
+
+    println()
+    val z = x.partition(_ > 10)
+    println(z)
+    val i = x.span(_ < 20)
+    println(i)
+    val k = x.splitAt(2)
+    println(k)
+
+    val nums = (1 to 5).toArray
+    val numsSliding = nums.sliding(2).toList
+    println(numsSliding)
+    //size=2 step=2
+    val numsSliding2 = nums.sliding(2, 2).toList
+    //size=2 step=3
+    nums.sliding(2, 3).toList
   }
 
   /**
