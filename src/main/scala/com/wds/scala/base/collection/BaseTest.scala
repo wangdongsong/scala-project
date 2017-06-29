@@ -33,6 +33,16 @@ object BaseTest {
     println(y)
     val z = x.toSet
     println(z)
+
+    val p1 = new CollPerson("Dale", "Copper")
+    val p2 = new CollPerson("Dale", "Copper")
+    val p3 = new CollPerson("Ed", "Hurley")
+
+    val list = List(p1, p2, p3)
+    list.foreach(println)
+    val distinceList = list.distinct
+    distinceList.foreach(println)
+
   }
 
   /**
@@ -348,4 +358,34 @@ object BaseTest {
     val x3 = List[AnyVal](1, 2.0, 400L, 33D)
   }
 
+}
+
+/**
+  * 自定义 的distinct
+  * @param firstName
+  * @param lastName
+  */
+class CollPerson(firstName: String, lastName: String){
+
+  override def toString: String = s"$firstName $lastName"
+
+  def canEqual(a: Any) = a.isInstanceOf[CollPerson]
+
+  override def equals(that: scala.Any): Boolean = that match{
+    case that: CollPerson => that.canEqual(this) && this.hashCode() == that.hashCode()
+    case _ => false
+  }
+
+  override def hashCode(): Int = {
+    val prime = 31
+    var result = 31
+    result = prime * result + lastName.hashCode
+    result = prime * result + (if (firstName == null) 0 else firstName.hashCode)
+
+    result
+  }
+}
+
+object CollPerson {
+  def apply(firstName: String, lastName: String): CollPerson = new CollPerson(firstName, lastName)
 }
