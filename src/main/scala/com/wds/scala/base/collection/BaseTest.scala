@@ -21,7 +21,65 @@ object BaseTest {
     //extractCollection
     //seqPartition
     //loopCollectionByReduceAndFold
-    extraceDistinctEleme
+    //extraceDistinctEleme
+    mergeCollection
+  }
+
+  /**
+    * 10.22 合并序列集合
+    *
+    * 将两个序列合并为一个序列，同时保留所有的原始元素，找到共同的元素，或者找到这个序列的不相同的元素
+    */
+  def mergeCollection: Unit ={
+    //++=方法把一个序列合并为一个可变序列
+    val a = collection.mutable.ArrayBuffer(1, 2, 3)
+    a ++= Seq(4, 5, 6)
+    a.foreach(print)
+
+    //++合并两个可变或不可变序列
+    val b = Array(1, 2, 3)
+    val c = Array(4, 5, 6)
+    val d = b ++ c
+    d.foreach(print)
+
+    val e = Array(1, 2, 3, 4, 5)
+    val f = Array(4, 5, 6, 7, 8)
+    //共同元素
+    val g = e.intersect(f)
+    g.foreach(print)
+    //合并
+    val h = e.union(f)
+    h.foreach(print)
+    //去重
+    val i = e.union(f).distinct
+    i.foreach(print)
+    //补集
+    val j = e diff f
+    j.foreach(print)
+    val k = f diff e
+    k.foreach(print)
+    Array.concat(e, f)
+
+    //:::将一个列表的元素放到另一个列表中
+    val l = List(1, 2, 3, 4)
+    val m = List(4, 5, 6, 7)
+    val n = l ::: m
+    n.foreach(print)
+
+    val o = Array(1, 2, 3, 11, 4, 12, 4, 5)
+    val p = Array(6, 7, 4, 5)
+    val q = o.toSet diff p.toSet
+    //等价于
+    val s = o.toSet -- p.toSet
+    s.foreach(print)
+    q.foreach(print)
+    val r = p.toSet diff o.toSet
+    r.foreach(print)
+
+    val all = o ++ p
+    all.foreach(print)
+
+
   }
 
   /**
