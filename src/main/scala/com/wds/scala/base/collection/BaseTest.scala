@@ -22,7 +22,46 @@ object BaseTest {
     //seqPartition
     //loopCollectionByReduceAndFold
     //extraceDistinctEleme
-    mergeCollection
+    //mergeCollection
+    mergeWithZip
+  }
+
+  /**
+    * 10.23 用zip将两个序列集合合并为一对
+    *
+    * 两个序列集合的数据合并为一个键值对的集合
+    */
+  def mergeWithZip: Unit = {
+    val women = List("Wilma", "Betty")
+    val men = List("Fred", "Barney")
+
+    val couples = women zip men
+    couples.foreach((t) => println(t._1, t._2))
+    for ((wife, husband) <- couples) {
+      print(wife, husband)
+      println()
+    }
+    //couples.foreach((wife, husband) =>)
+
+    val couplesMap = couples.toMap
+    couplesMap.foreach((t) => {
+      print(t._1, t._2)
+    })
+
+    for ((key, value) <- couplesMap) {println(key, value)}
+
+    couplesMap.keySet.foreach( (t) => {
+      print(t, couplesMap(t))
+      println()
+    })
+
+    couplesMap.foreach{ case (m, n) => (println(s"$m, $n"))}
+
+    println()
+    val products = Array(1, 3, 5)
+    val products2 = Array(2)
+    val doublePro = products zip products2
+    for (elem <- doublePro) {print(elem)}
   }
 
   /**
