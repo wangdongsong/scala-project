@@ -13,12 +13,34 @@ object ListTest {
     //mutableList
     //addElemList
     //removeList
-    mergeUnionList
+    //mergeUnionList
+    listLazyStream
+  }
+
+  /**
+    * 11.6 List的惰性版本Stream
+    *
+    * Stream通过#::构造，以Stream.empty结尾
+    */
+  def listLazyStream: Unit = {
+    val stream = 1 #:: 2 #:: 3 #:: Stream.empty
+    //如果是List，创建很大列表，内在溢出
+    val stream1 = (1 to 100000000).toStream
+    println(stream1.head)
+    //输出?表示惰性集合的结尾尚未执行的方式
+    println(stream1.tail)
+
+    //延迟计算
+    stream1.take(3)
+    stream1.filter(_ < 200)
+    stream1.map(_ * 2)
+    stream1.filter( _ > 200)
+
   }
 
   /**
     * 11.5 合并或连接列表
-    * 
+    *
     * 合并或连接两个列表的内容
     */
   def mergeUnionList: Unit = {
