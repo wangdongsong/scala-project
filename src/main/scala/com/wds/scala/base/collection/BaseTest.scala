@@ -25,7 +25,50 @@ object BaseTest {
     //mergeCollection
     //mergeWithZip
     //collectionLazyView
-    rangeCollection
+    //rangeCollection
+    //useTuple
+    //collectionSort
+    convertToString
+  }
+
+  /**
+    * 10.29 将集合转换为字符串
+    */
+  def convertToString: Unit = {
+    val a = Array("apple", "banana", "cherry")
+    val str = a.mkString
+    print(str)
+    print(a.mkString(","))
+    val b = Array("abc", "efg")
+    print(Array(a, b).flatten.mkString)
+  }
+
+  /**
+    * 10.28 集合排序
+    */
+  def collectionSort: Unit = {
+    List(1, 5, 8, 10, 3, 7).sortWith(_ > _).foreach(print)
+    List("abc", "efght", "a", "cd").sortWith(_.length > _.length).foreach(print)
+  }
+
+  /**
+    * 10.27 当需要一堆元素时使用元组
+    */
+  def useTuple: Unit = {
+    val d = ("Debi", 95)
+    print(d._1)
+  }
+
+
+
+  /**
+    * 10.26 创建并使用枚举
+    */
+  object Margin extends Enumeration {
+    def createEmum: Unit = {
+      type Margin = Value
+      val TOP, BOTTOM, LEFT, RIGHT = Value
+    }
   }
 
   /**
