@@ -1,5 +1,7 @@
 package com.wds.scala.base.collection
 
+import scala.collection.mutable.ListBuffer
+
 /**
   * 11章 列表、映射、集
   * Created by wangdongsong1229@163.com on 2017/7/2.
@@ -7,7 +9,29 @@ package com.wds.scala.base.collection
 object ListTest {
 
   def main(args: Array[String]): Unit = {
-    fillList
+    //fillList
+    mutableList
+  }
+
+  /**
+    * 11.2 创建可变List
+    *
+    * List是不可变的，如果创建要经常改变的列表，推荐使用ListBuffer，需要使用List时，转为List
+    */
+  def mutableList: Unit ={
+    var fruits = new ListBuffer[String]()
+
+    fruits += "apple"
+    fruits += "banana"
+    fruits += "Orange"
+    fruits += ("Strawberry", "Kiwi", "Pineapple")
+
+    fruits.foreach(print)
+
+    fruits -= "apple"
+    fruits -= ("banana", "Kiwi")
+
+    fruits.foreach(print)
   }
 
   /**
