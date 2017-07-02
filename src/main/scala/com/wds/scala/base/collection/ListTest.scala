@@ -12,7 +12,23 @@ object ListTest {
     //fillList
     //mutableList
     //addElemList
-    removeList
+    //removeList
+    mergeUnionList
+  }
+
+  /**
+    * 11.5 合并或连接列表
+    * 
+    * 合并或连接两个列表的内容
+    */
+  def mergeUnionList: Unit = {
+    val a = List(1, 2, 3)
+    val b = List(4, 5, 6)
+
+    val c = a ++ b
+    val d = a ::: b
+    val e = List.concat(a, b)
+
   }
 
   /**
