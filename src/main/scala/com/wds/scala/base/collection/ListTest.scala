@@ -10,7 +10,23 @@ object ListTest {
 
   def main(args: Array[String]): Unit = {
     //fillList
-    mutableList
+    //mutableList
+    addElemList
+  }
+
+  /**
+    * 11.3 为List添加元素
+    *
+    * 因为List是不可变的，不能添加新的元素，如果经常变化建议使用ListBuffer。
+    *
+    * 使用List时，通常的做法是用::方法在列表前面添加元素，然后将结果赋给一个新的List
+    *
+    */
+  def addElemList: Unit = {
+    var x = List(1, 2)
+    val y = 0 :: x
+    val z = y :+ 3
+    z.foreach(print)
   }
 
   /**
