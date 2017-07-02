@@ -24,7 +24,27 @@ object BaseTest {
     //extraceDistinctEleme
     //mergeCollection
     //mergeWithZip
-    collectionLazyView
+    //collectionLazyView
+    rangeCollection
+  }
+
+  /**
+    * 10.25 利用Range利用集合
+    *
+    * 用Range生成List、Array、Vector或其它序列
+    *
+    */
+  def rangeCollection: Unit ={
+    val arraysInt = Array.range(1, 5)
+    arraysInt.foreach(print)
+    println()
+    List.range(0, 10).foreach(print)
+    println()
+    Vector.range(0, 10, 2).foreach(print)
+    println()
+    val a = (0 until 10).toArray
+    val listB: List[Int] = 1 to 10 by 2 toList
+
   }
 
   /**
