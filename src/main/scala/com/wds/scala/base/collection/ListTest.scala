@@ -11,7 +11,30 @@ object ListTest {
   def main(args: Array[String]): Unit = {
     //fillList
     //mutableList
-    addElemList
+    //addElemList
+    removeList
+  }
+
+  /**
+    * 11.4 从List（或ListBuffer）中删除元素
+    *
+    * List为不可变元素，不能从中删除元素，但是可以过滤掉不想要的元素，然后将结果给新变量
+    */
+  def removeList: Unit = {
+    //List
+    val originalList = List(1, 2, 3, 4, 5)
+    val newList = originalList.filter(_ > 2)
+    newList.foreach(print)
+
+    println
+
+    //ListBuffer
+    val x = ListBuffer(1, 2, 3, 4, 5, 6, 7, 8)
+    x -= 5
+    x -= (2, 3)
+    x.remove(1)
+    x.remove(1, 2)
+    x.foreach(print)
   }
 
   /**
