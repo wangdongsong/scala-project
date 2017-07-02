@@ -23,8 +23,21 @@ object BaseTest {
     //loopCollectionByReduceAndFold
     //extraceDistinctEleme
     //mergeCollection
-    mergeWithZip
+    //mergeWithZip
+    collectionLazyView
   }
+
+  /**
+    * 10.24 在集合上创建一个惰性视图
+    */
+  def collectionLazyView: Unit ={
+    val view = (1 to 100).view
+    println(view.force)
+    view.foreach(print)
+    (1 to 10).map(_ * 2)
+  }
+
+
 
   /**
     * 10.23 用zip将两个序列集合合并为一对
