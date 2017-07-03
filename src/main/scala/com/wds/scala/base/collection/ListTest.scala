@@ -19,7 +19,35 @@ object ListTest {
     //createUpdateArray
     //createArrayBuffer
     //removeArray
-    arraySort
+    //arraySort
+    dimArray
+  }
+
+  /**
+    * 11.11 创建多维数组
+    *
+    * (1) Array.ofDim创建多维数据，最多创建五维数组
+    * (2) 按需创建数组的数组
+    */
+  def dimArray: Unit ={
+    val rows = 2
+    val cols = 3
+
+    val a = Array.ofDim[String](rows, cols)
+    println(a(0)(0)) //null
+
+    for {
+      i <- 0 until rows
+      j <- 0 until cols
+    } println(s"($i)($j) == ${a(i)(j)}")
+
+    val x, y, z = 10
+    val b = Array.ofDim[Int](x, y, z)
+
+
+    val c = Array(Array("a", "b", "c"), Array("d", "e", "f"))
+    println(c(0))
+
   }
 
   /**
