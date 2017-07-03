@@ -1,6 +1,7 @@
 package com.wds.scala.base.collection
 
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.util.Sorting
 
 /**
   * 11章 列表、映射、集
@@ -17,7 +18,20 @@ object ListTest {
     //listLazyStream
     //createUpdateArray
     //createArrayBuffer
-    removeArray
+    //removeArray
+    arraySort
+  }
+
+  /**
+    * 11.10 数组排序
+    *
+    * 可通过String的隐式排序实现，如果Array不是隐式排序，可以通过混入Ordered物质获取隐式排序能力
+    *
+    */
+  def arraySort: Unit = {
+    val fruits = Array("cherry", "apple", "banana")
+    Sorting.quickSort(fruits)
+    fruits.foreach(println)
   }
 
   /**
