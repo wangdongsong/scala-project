@@ -1,6 +1,6 @@
 package com.wds.scala.base.collection
 
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /**
   * 11章 列表、映射、集
@@ -15,7 +15,27 @@ object ListTest {
     //removeList
     //mergeUnionList
     //listLazyStream
-    createUpdateArray
+    //createUpdateArray
+    createArrayBuffer
+  }
+
+  /**
+    * 11.8 创建大小可变的数组
+    *
+    * Array是可变的，因为它内容可变，但其大小不能改变。创建一个内容、大小都可变的索引序列，可以使用ArrayBuffer类
+    */
+  def createArrayBuffer: Unit = {
+    var characters = ArrayBuffer[String]()
+    characters += "Ben"
+    characters += "Jerry"
+    characters += "Dale"
+
+    val a = ArrayBuffer("Ben", "Jerry")
+    a += "Dale"
+    a += ("Gordon", "Harry")
+    a ++= Seq("Andy", "Big Ed")
+    a.append("Laura", "Lucy")
+
   }
 
   /**
