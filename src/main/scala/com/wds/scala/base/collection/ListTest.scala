@@ -14,7 +14,34 @@ object ListTest {
     //addElemList
     //removeList
     //mergeUnionList
-    listLazyStream
+    //listLazyStream
+    createUpdateArray
+  }
+
+  /**
+    * 11.7 创建或更新数组的不同方式
+    */
+  def createUpdateArray: Unit ={
+    val a = Array(1, 2, 3)
+    val fruits = Array("apple", "banana", "Orange")
+    val x = Array(1, 20D, 2.0, 400L)
+    val y = Array[Number](1, 2.0, 33D, 400L)
+
+    val z = new Array[String](3)
+    fruits(0) = "apple"
+    fruits(1) = "banana"
+    fruits(2) = "orange"
+
+    val b = Array.range(1, 10)
+    val c = Array(0, 10, 2)
+    val d = Array.fill(3)("foo")
+    val e = Array.tabulate(5)(n => n * n)
+    e.foreach(print)
+    println
+    val f = List(1, 2, 3).toArray
+    "Hello".toArray.foreach(print)
+
+
   }
 
   /**
