@@ -16,7 +16,32 @@ object ListTest {
     //mergeUnionList
     //listLazyStream
     //createUpdateArray
-    createArrayBuffer
+    //createArrayBuffer
+    removeArray
+  }
+
+  /**
+    * 10.9 删除Array和ArrayBuffer的元素
+    *
+    * 使用-=、--=、remove和clear删除元素
+    *
+    */
+  def removeArray: Unit = {
+    val x = ArrayBuffer("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n")
+    x -= "a"
+    x -= ("a", "c")
+    x --= Seq("b", "d")
+    x --= Array("d", "e")
+    x --= Set("e", "f")
+    x.remove(0)
+    x.remove(0, 2)
+    x.foreach(print)
+
+    //Array不可变，需要重新赋值给新变量
+    val y = Array("a", "b", "c", "d")
+    val z = y.filter(_.contains("c"))
+    z.foreach(print)
+
   }
 
   /**
