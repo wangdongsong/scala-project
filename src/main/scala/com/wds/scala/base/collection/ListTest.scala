@@ -24,7 +24,27 @@ object ListTest {
     //dimArray
     //createMapping
     //selectMap
-    updateMap
+    //updateMap
+    readMap
+  }
+
+  /**
+    * 11.16 访问映射的值
+    */
+  def readMap: Unit ={
+    val states = Map("AL" -> "Alabama", "AK" -> "Alaska", "AZ" -> "Arizona")
+    val za = states("AZ")
+    //访问不存的key会报错
+    //val s = states("FOO")
+    val states2 = Map("AL" -> "Alabama").withDefaultValue("Not Found")
+    val s2 = states2("Foot")
+    println(s2)
+
+    val s3 = states.getOrElse("FOO", "Nu Such state")
+    println(s3)
+
+    val az = states.get("AZ")
+    println(az.get)
   }
 
   /**
