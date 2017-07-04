@@ -1,5 +1,6 @@
 package com.wds.scala.base.collection
 
+import scala.collection.{SortedMap, mutable}
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Sorting
 
@@ -21,7 +22,22 @@ object ListTest {
     //removeArray
     //arraySort
     //dimArray
-    createMapping
+    //createMapping
+    selectMap
+  }
+
+  /**
+    * 11.13 选择一种Map实现
+    */
+  def selectMap: Unit = {
+    //SortedMap
+    val grades = SortedMap("Kim" -> 90, "Al" -> 85, "Melissa" -> 95, "Hannah" -> 92)
+    for (elem <- grades) {println(s"${elem._1}, ${elem._2}")}
+    //记住插入顺序的LinkedHashMap
+    var states = mutable.LinkedHashMap("TL" -> "Tllions")
+    states += ("Ky" -> "Kentucky")
+    states += ("Tx" -> "Texas")
+    for (elem <- states) {println(s"${elem._1}, ${elem._2}")}
   }
 
   /**
