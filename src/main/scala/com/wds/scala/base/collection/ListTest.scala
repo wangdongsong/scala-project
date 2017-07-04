@@ -20,7 +20,24 @@ object ListTest {
     //createArrayBuffer
     //removeArray
     //arraySort
-    dimArray
+    //dimArray
+    createMapping
+  }
+
+  /**
+    * 11.12 创建映射
+    *
+    * Map不可变映射
+    *
+    */
+  def createMapping: Unit = {
+    val states = Map("AL" -> "Alabama", "Ak" -> "Alaska")
+    var mutableMap = collection.mutable.Map("AL" -> "Alabama")
+    mutableMap += ("Ak" -> "Alaska")
+
+    for ((k, v) <- states) {
+      println(s"$k, $v")
+    }
   }
 
   /**
