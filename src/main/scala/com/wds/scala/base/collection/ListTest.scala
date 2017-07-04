@@ -23,7 +23,32 @@ object ListTest {
     //arraySort
     //dimArray
     //createMapping
-    selectMap
+    //selectMap
+    updateMap
+  }
+
+  /**
+    * 11.14 为可变映射添加、更新或删除元素
+    *
+    * +=添加元素
+    * -=或--=删除元素
+    */
+  def updateMap: Unit ={
+    var states = collection.mutable.Map[String,String]()
+    states("AK") = "Alaska"
+    states += ("AL" -> "Alabama")
+    states += ("AR" -> "Arkansas", "AZ" -> "Arizona")
+    states ++= List("CA" -> "California", "CO" -> "Colorado")
+
+    states -= "AR"
+    states -= ("AR", "AZ")
+    states --= List("AR", "AZ")
+
+    states("AK") = "Alaska, Areally Big State"
+
+    states.put("CO2", "Colorado2")
+    states.remove("CO2")
+    states.clear()
   }
 
   /**
