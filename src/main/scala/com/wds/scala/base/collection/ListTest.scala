@@ -29,7 +29,26 @@ object ListTest {
     //getAllFromMap
     //reverseMap
     //testExistMap
-    filterMapping
+    //filterMapping
+    sortedByKeyOrValue
+  }
+
+  /**
+    * 11.22 根据键或值对映射排序
+    */
+  def sortedByKeyOrValue: Unit = {
+    val grades = SortedMap("Kim" -> 90, "Al" -> 85, "Melissa" -> 95, "Hannah" -> 92)
+    val listMap = mutable.ListMap(grades.toSeq.sortBy(_._1): _ *)
+    listMap.foreach((map) => println(map._1, map._2))
+
+    val listMap2 = mutable.ListMap(grades.toSeq.sortWith(_._1 < _._1): _*)
+    listMap2.foreach((map) => println(map._1, map._2))
+
+    val listMap3 = mutable.ListMap(grades.toSeq.sortBy(_._2): _ *)
+    listMap3.foreach((map) => println(map._1, map._2))
+
+    val linkMap = mutable.LinkedHashMap(grades.toSeq.sortBy(_._1): _*)
+    linkMap.foreach((map) => println(map._1, map._2))
   }
 
   /**
