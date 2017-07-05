@@ -25,7 +25,20 @@ object ListTest {
     //createMapping
     //selectMap
     //updateMap
-    loopMap
+    //loopMap
+    getAllFromMap
+  }
+
+  /**
+    * 11.18 从映射中获取所有的键或值
+    */
+  def getAllFromMap: Unit = {
+    val states = Map("AL" -> "Alabama", "AK" -> "Alaska", "AZ" -> "Arizona")
+    states.keys.foreach(print(_, ","))
+    println()
+    states.values.foreach(print(_, ","))
+    states.keysIterator
+    states.valuesIterator
   }
 
   /**
