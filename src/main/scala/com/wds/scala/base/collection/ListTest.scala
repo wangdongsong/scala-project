@@ -27,7 +27,19 @@ object ListTest {
     //updateMap
     //loopMap
     //getAllFromMap
-    reverseMap
+    //reverseMap
+    testExistMap
+  }
+
+  /**
+    * 11.20 测试映射中键/值的存在
+    */
+  def testExistMap: Unit ={
+    val states = Map("AL" -> "Alabama", "AK" -> "Alaska", "AZ" -> "Arizona")
+    if(states.contains("FOO")) println("Found") else println("Not Found")
+
+    println(states.valuesIterator.exists(_.contains("ucky")))
+    println(states.valuesIterator.exists(_.contains(("Alaska"))))
   }
 
   /**
