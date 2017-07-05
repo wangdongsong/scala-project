@@ -25,7 +25,28 @@ object ListTest {
     //createMapping
     //selectMap
     //updateMap
-    readMap
+    loopMap
+  }
+
+  /**
+    * 11.17 遍历映射
+    */
+  def loopMap: Unit = {
+    val ratings = Map("Lady in the Water" -> 3.0, "Snakes on a Plane" -> 4.0, "You, Me and Dupree" -> 3.5)
+    for((k, v) <- ratings) println(s"key: $k, value: $v")
+
+    ratings.foreach(x => println(s"key: ${x._1}, value: ${x._2}"))
+
+    ratings.foreach{
+      case(k, v) => println(s"key: $k, value: $v")
+    }
+
+    ratings.keys.foreach((key) => println(key))
+
+    var r = collection.mutable.Map("Lady in the Water" -> 3.0, "Snakes on a Plane" -> 4.0, "You, Me and Dupree" -> 3.5)
+    var y = r.mapValues(_.+(1.0))
+    y.foreach(x => println(s"key: ${x._1}, value: ${x._2}"))
+
   }
 
   /**
