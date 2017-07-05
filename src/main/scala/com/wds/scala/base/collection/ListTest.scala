@@ -26,7 +26,17 @@ object ListTest {
     //selectMap
     //updateMap
     //loopMap
-    getAllFromMap
+    //getAllFromMap
+    reverseMap
+  }
+
+  /**
+    * 11.19 反转键值
+    */
+  def reverseMap: Unit ={
+    val reverseMap = Map("AL" -> "Alabama", "AK" -> "Alaska", "AZ" -> "Arizona")
+    val rm = for ((k, v) <- reverseMap) yield (v, k)
+    rm.foreach((x) => println(x._1, x._2))
   }
 
   /**
