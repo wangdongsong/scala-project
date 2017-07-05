@@ -28,8 +28,39 @@ object ListTest {
     //loopMap
     //getAllFromMap
     //reverseMap
-    testExistMap
+    //testExistMap
+    filterMapping
   }
+
+  /**
+    * 11.21 过滤映射
+    */
+  def filterMapping: Unit ={
+    var x = collection.mutable.Map(1 -> "a", 2 -> "b", 3 -> "c")
+    x.retain((k, v) => k > 1)
+    for (elem <- x) {println(s"${elem._1}, ${elem._2}")}
+
+    x.transform((k, v) => v.toUpperCase)
+    for (elem <- x) {println(s"${elem._1}, ${elem._2}")}
+
+      val a = collection.mutable.Map(1 -> "a", 2 -> "b", 3 -> "c")
+    val b = x.filterKeys(_ > 2)
+    for (elem <- b) {println(s"${elem._1}, ${elem._2}")}
+
+    val c = a.filterKeys(only)
+    for (elem <- c) {println(s"${elem._1}, ${elem._2}")}
+
+    val d = a.filter(Set(2, 3))
+
+
+    var m = collection.mutable.Map(1 -> "a", 2 -> "b", 3 -> "c")
+    m.filter((t) => t._1 > 1)
+    m.filter((t) => t._2 == "c")
+    //提取保留前面两个元素
+    m.take(2)
+  }
+
+  def only(i: Int) = if(i == 1) true else false
 
   /**
     * 11.20 测试映射中键/值的存在
