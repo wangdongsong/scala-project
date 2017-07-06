@@ -35,7 +35,23 @@ object ListTest {
     //addElemSet
     //removeElemSet
     //useSortSet
-    useQueue
+    //useQueue
+    useStack
+  }
+
+  /**
+    * 11.28 使用栈
+    */
+  def useStack: Unit = {
+    var ints = mutable.Stack[Int]()
+    var fruits = mutable.Stack[String]()
+    var a = mutable.Stack(1, 2, 3)
+    println(a.pop())
+
+    fruits.push("banana")
+    fruits.push("banana")
+    fruits.push("coconut", "orange", "pineapple")
+    fruits.foreach(println)
   }
 
   /**
