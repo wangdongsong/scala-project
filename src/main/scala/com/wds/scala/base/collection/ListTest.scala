@@ -32,7 +32,33 @@ object ListTest {
     //filterMapping
     //sortedByKeyOrValue
     //findMaxKeyOrValue
-    addElemSet
+    //addElemSet
+    removeElemSet
+  }
+
+  /**
+    * 11.25 从集中删除元素
+    */
+  def removeElemSet: Unit ={
+
+    //可变
+    var set = collection.mutable.Set(1, 2, 3, 4, 5)
+    set -= 1
+    set -= (2, 3)
+    set --= Array(4, 5)
+
+    var set2 = collection.mutable.Set(1, 2, 3, 4, 5)
+    set.retain(_ > 2)
+    set2.clear()
+    set2.remove(1)
+
+    //不可变
+    val s1 = Set(1, 2, 3, 4, 5, 6)
+    val s2 = s1 - 1
+    val s3 = s1 - (2, 3)
+    val s4 = s1 -- Array(4 ,5)
+    val s5 = s1.filter(_ > 3)
+    val s6 = s1.take(2)
   }
 
   /**
