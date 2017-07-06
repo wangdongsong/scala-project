@@ -36,7 +36,31 @@ object ListTest {
     //removeElemSet
     //useSortSet
     //useQueue
-    useStack
+    //useStack
+    useRange
+  }
+
+  /**
+    * 11.29 使用Range
+    */
+  def useRange: Unit = {
+
+    (1 to 10).foreach(print)
+    println()
+    (1 until 10).foreach(print)
+    println
+    val x = (1 to 10).toArray
+    val x1 = (1 to 10).toList
+    val x2 = (1 to 10).toSet
+    val x3 = Array.range(1, 10)
+    val x4 = List.range(1, 10)
+    val x5 = Vector.range(1, 10)
+    val x6 = List.range(1, 10, 2)
+
+    for(i <- 1 to 3){
+      println(i)
+    }
+
   }
 
   /**
