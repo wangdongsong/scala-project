@@ -34,7 +34,25 @@ object ListTest {
     //findMaxKeyOrValue
     //addElemSet
     //removeElemSet
-    useSortSet
+    //useSortSet
+    useQueue
+  }
+
+  /**
+    * 11.27 使用队列
+    */
+  def useQueue: Unit = {
+    var ints = mutable.Queue[Int]()
+    var fruits = mutable.Queue[String]()
+
+    var q = new mutable.Queue[String]()
+    q += "Apple"
+    q += ("kiwi", "banana")
+    q ++= List("cherry", "coconut")
+    q.enqueue("pineapple")
+    println(q.dequeue)
+    println(q.dequeueFirst(_.startsWith("b")))
+    println(q.dequeueAll(_.length > 6))
   }
 
   /**
