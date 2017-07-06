@@ -35,9 +35,27 @@ object ListTest {
     addElemSet
   }
 
-
+  /**
+    * 11.24 给集添加元素
+    */
   def addElemSet: Unit = {
+    var set = collection.mutable.Set[Int]()
+    set += 1
+    set += (2, 3)
+    set ++= Set(4, 5)
+    set ++= Vector(6, 7)
+    set.add(8)
+    set.foreach(println)
 
+    val set2 = Set(1, 2)
+    val set3 = set2 + 3
+    val set4 = set3 + (4, 5)
+    val set5 = set4 ++ List(6, 7)
+
+
+    var set6 = Set(1, 2, 3)
+    set6 += 4
+    set6.foreach(println)
   }
 
   /**
