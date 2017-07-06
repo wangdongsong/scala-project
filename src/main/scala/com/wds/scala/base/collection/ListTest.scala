@@ -30,7 +30,31 @@ object ListTest {
     //reverseMap
     //testExistMap
     //filterMapping
-    sortedByKeyOrValue
+    //sortedByKeyOrValue
+    //findMaxKeyOrValue
+    addElemSet
+  }
+
+
+  def addElemSet: Unit = {
+
+  }
+
+  /**
+    * 11.23 找到映射中最大的键或值
+    */
+  def findMaxKeyOrValue: Unit = {
+    val grades = SortedMap("Kim" -> 90, "Al" -> 85, "Melissa" -> 95, "Hannah" -> 92)
+    //最大的键
+    println(grades.max)
+    println(grades.keysIterator.max)
+    println(grades.valuesIterator.max)
+
+    val m = grades.keysIterator.reduceLeft((x, y) => if(x > y) x else y)
+    println(m)
+    val m1 = grades.keysIterator.reduceLeft((x, y) => if(x.length > y.length) x else y)
+    println(m1)
+    grades.valuesIterator.reduceLeft(_ max _)
   }
 
   /**
