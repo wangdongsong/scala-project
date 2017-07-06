@@ -1,6 +1,6 @@
 package com.wds.scala.base.collection
 
-import scala.collection.{SortedMap, mutable}
+import scala.collection.{SortedMap, SortedSet, mutable}
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Sorting
 
@@ -33,7 +33,20 @@ object ListTest {
     //sortedByKeyOrValue
     //findMaxKeyOrValue
     //addElemSet
-    removeElemSet
+    //removeElemSet
+    useSortSet
+  }
+
+  /**
+    * 11.26 使用可排序集
+    * SortedSet
+    */
+  def useSortSet: Unit ={
+    //返回有序的
+    val s = SortedSet(10, 4, 8, 2)
+    //按插入顺序
+    val s2 = mutable.LinkedHashSet(10, 4, 8 , 2)
+
   }
 
   /**
