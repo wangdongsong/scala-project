@@ -1,5 +1,7 @@
 package com.wds.scala.base.file
 
+import java.io.{File, PrintWriter}
+
 import scala.io.Source
 
 /**
@@ -8,7 +10,8 @@ import scala.io.Source
 object OpenReadFile {
 
   def main(args: Array[String]): Unit = {
-    openFile
+    //openFile
+    writeFile
   }
 
   /**
@@ -30,8 +33,16 @@ object OpenReadFile {
     }
     //确保关闭
     bufferedSource.close()
+  }
 
-
+  /**
+    * 12.2 写入文件
+    * Scala不提供写文件能力，使用Java的
+    */
+  def writeFile: Unit = {
+    val pw = new PrintWriter(new File("E:\\javaTest\\scala.txt"))
+    pw.write("HelloWorld")
+    pw.close()
   }
 
 }
