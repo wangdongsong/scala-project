@@ -13,7 +13,28 @@ object OpenReadFile {
     //openFile
     //writeFile
     //rwBinaryFile
-    processChar
+    //processChar
+    procesCSVFile
+  }
+
+  /**
+    * 12.5 处理CSV文件
+    */
+  def procesCSVFile: Unit = {
+    val bufferedSource = Source.fromFile("E:\\javaTest\\csv.csv")
+    for(line <- bufferedSource.getLines){
+      val cols = line.split(",").map(_.trim)
+      println(s"${cols(0)}")
+    }
+    bufferedSource.close()
+
+    val bufferedSource2 = Source.fromFile("E:\\javaTest\\csv.csv")
+    for(line2 <- bufferedSource2.getLines){
+      val Array(one, two, trhee) = line2.split(",").map(_.trim)
+      println(s"$one, $two")
+    }
+    bufferedSource2.close()
+
   }
 
   /**
