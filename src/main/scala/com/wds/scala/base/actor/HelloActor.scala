@@ -18,6 +18,13 @@ class HelloActor extends Actor{
   }
 }
 
+class ParamHelloActor(name: String) extends Actor{
+  override def receive: Receive = {
+    case "hello" => println(s"hello back to you, $name")
+    case _ => println(s"Huh? $name")
+  }
+}
+
 object Main extends App{
   val system = ActorSystem("HelloSystem")
 
@@ -26,7 +33,8 @@ object Main extends App{
   helloActor ! "hello"
   helloActor ! "buenos dias"
 
-  val future: Future[Terminated] = system.terminate()
+  val paramHelloActor = system.actorOf(Props(new ParamHelloActor("Fred")), name = "paramHelloActor")
+  paramHelloActor ! "hello"
 
   Await.ready(system.whenTerminated, Duration(1, TimeUnit.MINUTES))
 }
