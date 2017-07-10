@@ -69,6 +69,35 @@ class Pong extends Actor{
   }
 }
 
+/**
+  * 13.4 Actor全生命周期
+  */
+class Kenny extends Actor {
+  println("entered the Kenny constructor")
+
+  override def preStart(): Unit = println("kenny: preStart")
+
+  override def postStop(): Unit = println("kenny: postStop")
+
+  override def preRestart(reason: Throwable, message: Option[Any]): Unit = {
+    println("kenny: preRestart")
+    println(s"Message: ${message.getOrElse("")}")
+    println(s"Reason: ${reason.getMessage}")
+    super.preRestart(reason, message)
+  }
+
+  override def postRestart(reason: Throwable): Unit = {
+    println("kenny: postRestart")
+    println(s"Reason: ${reason.getMessage}")
+    super.postRestart(reason)
+  }
+
+  override def receive: Receive = {
+    case "restart" => throw new Exception("Boom")
+    case _ => println("Kenny received a message")
+  }
+}
+
 object Main {
 
   def main(args: Array[String]): Unit = {
